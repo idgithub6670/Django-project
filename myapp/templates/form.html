@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block title %}
+<title>Form</title>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center">Create member</h1>
+<form method="post" action="form">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" class="form_control">
+    </div>
+    <div class="form-group mb-2">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" name="age" class="form_control">
+    </div>
+    <input type="submit" value="Create" class="btn btn-success">
+</form>
+
+{% endblock %}

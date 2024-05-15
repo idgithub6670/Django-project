@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block title %}
+<title>Edit Info</title>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center">Form</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form_control" value="{{person.name}}">
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" name="age" class="form_control" value="{{person.age}}">
+    </div>
+    <input type="submit" value="Update" class="btn btn-success">
+</form>
+
+{% endblock %}

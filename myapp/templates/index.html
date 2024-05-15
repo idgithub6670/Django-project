@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+
+{% block title %}
+<title>First Page</title>
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+
+{% for messages in messages %}
+<div class="alert alert-success" role="alert">
+    <strong>{{messages}}</strong>
+</div>
+{% endfor %}
+
+{% endif %}
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">AGE</th>
+            <th scope="col">EDIT</th>
+            <th scope="col">DELETE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in all_person %}
+        <tr>
+            <th scope="row">{{person.id}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td><a href="edit/{{person.id}}" class="btn btn-warning">Edit</a></td>
+            <td><a href="delete/{{person.id}}" class="btn btn-danger"
+                    onclick="return confirm('You want to delete {{person.name}}Yes or No ?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
